@@ -49,7 +49,7 @@
 //                       |     | ADJ | BKSP |    |     |
                         bindings = <
    &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp DEL
-   &trans &kp MINUS &kp EQL   &kp LBKT  &kp RBKT  &kp BSLH      &kp F1    &kp LEFT    &kp DOWN    &kp RIGHT    &kp F5    &kp F6
+   &trans &none     &none     &none     &none     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT    &kp F5    &kp F6
    &trans &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp QUOT      &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
                                 &trans      &mo 3       &kp BKSP        &trans      &trans
                         >;
@@ -64,7 +64,7 @@
                         bindings = <
    &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
    &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
-   &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &none 
+   &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &bootloader 
                                                              &trans      &trans       &tog 3        &trans      &trans
                         >;
                 };

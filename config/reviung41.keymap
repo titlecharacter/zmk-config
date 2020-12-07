@@ -37,7 +37,7 @@
 //                       |     |     | RET | ADJ |     |
                         bindings = <
    &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp BKSP
-   &trans &kp BANG  &kp ATSN &kp HASH &kp CURU &kp PRCT      &kp CRRT &kp AMPS &kp STAR &kp LPRN &kp RPRN &kp MINUS
+   &trans &kp BANG  &kp ATSN &kp HASH &kp DLLR &kp PRCT      &kp CRRT &kp AMPS &kp STAR &kp LPRN &kp RPRN &kp MINUS
    &trans &trans &kp BSLH &kp PIPE &kp LBKT &kp RBKT      &trans &kp EQUAL &kp PLUS  &kp DOT &kp TILDE &kp UNDER
                               &trans      &trans       &kp RET        &mo 3       &trans
                         >;

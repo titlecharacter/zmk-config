@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+#define HYPER(code) LC(LS(LA(LG(code))))
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -34,8 +36,8 @@
 // |    |    |  \  |  "|"  | [  | ]   |   |     |  =  |  +  |   . |  ~  |     _     |
 //                       |     |     | RET | ADJ |     |
                         bindings = <
-   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp DEL
-   &trans &kp BANG  &kp ATSN &kp HASH &kp CURU &kp PRCT      &kp CRRT &kp AMPS &kp NUM_8 &kp LPRN &kp RPRN &kp MINUS
+   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp BKSP
+   &trans &kp BANG  &kp ATSN &kp HASH &kp CURU &kp PRCT      &kp CRRT &kp AMPS &kp STAR &kp LPRN &kp RPRN &kp MINUS
    &trans &trans &kp BSLH &kp PIPE &kp LBKT &kp RBKT      &trans &kp EQUAL &kp PLUS  &kp DOT &kp TILDE &kp UNDER
                               &trans      &trans       &kp RET        &mo 3       &trans
                         >;
@@ -48,9 +50,9 @@
 // |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
 //                       |     | ADJ | BKSP |    |     |
                         bindings = <
-   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp DEL
+   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp BKSP
    &trans &none     &none     &none     &none     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT    &kp F5    &kp F6
-   &trans &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp QUOT      &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
+   &trans &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp QUOT      &kp F7    &kp HYPER(LEFT)    HYPER(ENTER)    HYPER(RIGHT)  &kp F11   &kp F12
                                 &trans      &mo 3       &kp BKSP        &trans      &trans
                         >;
                 };
@@ -59,7 +61,7 @@
 // -----------------------------------------------------------------------------------------
 // | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
 // | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI+ |    |         |   |       |     |     |     |     |        |
-// |          |          |          |          |    |         |   | RESET |     |     |     |     |        |
+// |          |          |          |          |    |         |   | RESET |     |     |     |     |BOOTLOAD|
 //                                              |     |     |     |     |     |
                         bindings = <
    &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR

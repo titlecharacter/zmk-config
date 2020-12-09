@@ -2,10 +2,12 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: innovaker
+      url-base: https://github.com/innovaker
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: innovaker
+      revision: zephyr-v2.4.0
       import: app/west.yml
   self:
     path: config

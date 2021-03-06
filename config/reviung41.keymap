@@ -60,9 +60,9 @@
 // |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
 //                       |     | ADJ | BKSP |    |     |
                         bindings = <
-   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp BKSP
-   &trans &none     &none     &none     &none     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT    &kp F5    &kp F6
-   &trans &kp LGUI(Z)   &kp LGUI(X)  &kp LGUI(C)  &kp LGUI(C)  &none      &kp F7    &kp HYPER(LEFT)   &kp HYPER(ENTER)  &kp  HYPER(RIGHT)  &kp F11   &kp F12
+   &trans &kp NUM_1    &kp NUM_2    &kp NUM_3    &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp BKSP
+   &trans &none        &none        &none        &none     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT    &kp F5    &kp F6
+   &trans &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &none      &kp F7    &kp HYPER(LEFT)   &kp HYPER(ENTER)  &kp  HYPER(RIGHT)  &kp F11   &kp F12
                                 &trans      &mo 3       &kp BKSP        &trans      &trans
                         >;
                 };

@@ -45,9 +45,9 @@
 
                 lower_layer {
 // ----------------------------------------------------------------------------------
-// |    |  X  |  &  |  ~  |  { |  }  |   |  $  |  7  |  8  |  9  |  *  |     |
+// |    |  X  |  X  |  &  |  { |  }  |   |  $  |  7  |  8  |  9  |  *  |     |
 // |    |  !  |  @  |  #  |  ( |  )  |   |  -  |  4  |  5  |  6  |  +  |  X  |
-// |    |  ^  | BSLH|  %  |  [ |  ]  |   |  %  |  1  |  2  |  3  |  =  |  _  |
+// |    |  ^  | BSLH|  _  |  [ |  ]  |   |  %  |  1  |  2  |  3  |  =  |  ~  |
 //                       |     |     | RET | ADJ(0) | cmd(.)    |
 //                    
 //  OLD SHIT FOR REFERENCE
@@ -60,9 +60,9 @@
   //              };
 
                 bindings = <
-   &trans &none     &kp AMPS  &kp TILDE &kp LBRC &kp RBRC              &kp DLLR &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp STAR &kp BKSP
-   &trans &kp BANG  &kp ATSN &kp HASH &kp LPRN &kp RPRN         &kp MINUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp PLUS &trans
-   &trans &kp CRRT &kp BSLH &kp PRCT &kp LBKT &kp RBKT         &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp UNDER
+   &trans &none     &none &kp AMPS &kp LBRC &kp RBRC         &kp DLLR &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp STAR &kp BKSP
+   &trans &kp BANG  &kp ATSN  &kp HASH &kp LPRN &kp RPRN         &kp MINUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp PLUS &trans
+   &trans &kp CRRT  &kp BSLH  &kp UNDER &kp LBKT &kp RBKT        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp TILDE
                               &trans      &trans       &kp RET        &lt 3 NUM_0       &mt RGUI DOT
                         >;
                 };
@@ -72,12 +72,12 @@
 // |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
 // |    |  -  |  =  |  [  |  ]  |  \  |   | F1  | F2  | F3  | F4  | F5  | F6  |
 // |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-//                       |     | ADJ | BKSP |    |     |
+//                       |     | ADJ | SPACE |    |     |
                         bindings = <
-   &trans &kp NUM_1    &kp NUM_2    &kp NUM_3    &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp BKSP
-   &trans &none        &none        &none        &none     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT    &kp F5    &kp F6
-   &trans &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &none      &kp F7    &kp HYPER(LEFT)   &kp HYPER(ENTER)  &kp  HYPER(RIGHT)  &kp F11   &kp F12
-                                &trans      &mo 3       &kp BKSP        &trans      &trans
+   &trans &none      &none      &none      &none         &none         &none &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp BKSP
+   &trans &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT   &none    &none
+   &trans &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)     &none         &none    &kp HYPER(LEFT)   &kp HYPER(ENTER)  &kp  HYPER(RIGHT)  &kp F11   &kp F12
+                                &trans      &mo 3       &kp SPC        &trans      &trans
                         >;
                 };
 

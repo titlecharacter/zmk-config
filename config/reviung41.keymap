@@ -62,7 +62,7 @@
                 bindings = <
    &trans &none     &none      &kp LBRC &kp RBRC &kp HASH         &kp DLLR &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp STAR &kp BKSP
    &trans &kp BANG  &kp ATSN   &kp LPRN &kp RPRN &kp AMPS         &kp PLUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp MINUS &trans
-   &trans &kp CRRT  &kp UNDER  &kp LBKT &kp RBKT &kp BLSH        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp TILDE
+   &trans &kp CRRT  &kp UNDER  &kp LBKT &kp RBKT &kp BSLH        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp TILDE
                               &trans      &trans       &kp RET        &lt 3 NUM_0       &mt RGUI DOT
                         >;
                 };

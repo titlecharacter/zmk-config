@@ -45,9 +45,9 @@
 
                 lower_layer {
 // ----------------------------------------------------------------------------------
-// |    |  X  |  X  |  &  |  { |  }  |   |  $  |  7  |  8  |  9  |  *  |     |
-// |    |  !  |  @  |  #  |  ( |  )  |   |  -  |  4  |  5  |  6  |  +  |  X  |
-// |    |  ^  | BSLH|  _  |  [ |  ]  |   |  %  |  1  |  2  |  3  |  =  |  ~  |
+// |    |     |     |  {  |  }  |  #  |   |  $  |  7  |  8  |  9  |  *  |     |
+// |    |  !  |  @  |  (  |  )  |  &  |   |  +  |  4  |  5  |  6  |  -  |  X  |
+// |    |  ^  |  _  |  [  |  ]  |  \  |   |  %  |  1  |  2  |  3  |  =  |  ~  |
 //                       |     |     | RET | ADJ(0) | cmd(.)    |
 //                    
 //  OLD SHIT FOR REFERENCE
@@ -60,9 +60,9 @@
   //              };
 
                 bindings = <
-   &trans &none     &none &kp AMPS &kp LBRC &kp RBRC         &kp DLLR &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp STAR &kp BKSP
-   &trans &kp BANG  &kp ATSN  &kp HASH &kp LPRN &kp RPRN         &kp MINUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp PLUS &trans
-   &trans &kp CRRT  &kp BSLH  &kp UNDER &kp LBKT &kp RBKT        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp TILDE
+   &trans &none     &none      &kp LBRC &kp RBRC &kp HASH         &kp DLLR &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp STAR &kp BKSP
+   &trans &kp BANG  &kp ATSN   &kp LPRN &kp RPRN &kp AMPS         &kp PLUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp MINUS &trans
+   &trans &kp CRRT  &kp UNDER  &kp LBKT &kp RBKT &kp BLSH        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp TILDE
                               &trans      &trans       &kp RET        &lt 3 NUM_0       &mt RGUI DOT
                         >;
                 };
@@ -70,8 +70,8 @@
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // |    |     |     |     |     |     |   |     | A(L)|  UP | A(R) |     | DEL |
-// |    |Undo | Cut | copy|paste|     |   | F1  | L   |   D |  R   |shift|     |
-// |    |     |     |     |     |     |   | F7  | H(L)| H(Rtn)|H(R)|     |     |
+// |    |Undo | Cut | copy|paste|     |   |     | L   |   D |  R   |shift|     |
+// |    |     |     |     |     |     |   |     | H(L)| H(Rtn)|H(R)|     |     |
 //                       |     | ADJ | SPACE |    |     |
                         bindings = <
    &trans &none      &none      &none      &none         &none         &none &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp DEL
@@ -83,14 +83,14 @@
 
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
-// | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
-// | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI+ |    |         |   |       |     |     |     |     |        |
-// |          |          |          |          |    |         |   | RESET |     |     |     |     |BOOTLOAD|
+// |          |          |          |          |    |         |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
+// |          |INSERT    |          |          |    |         |   |       |     |     |     |     |        |
+// | CAPSLOCK |          |          |          |    |         |   | RESET |     |     |     |     |BOOTLOAD|
 //                                              |     |     |     |     |     |
                         bindings = <
-   &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
-   &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &bootloader 
+   &none           &none           &none           &none           &none &none              &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
+   &none           &kp INSERT           &none           &none           &none &none              &none        &none        &none        &none        &none        &none
+   &kp CAPS           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &bootloader 
                                                              &trans      &trans       &tog 3        &trans      &trans
                         >;
                 };

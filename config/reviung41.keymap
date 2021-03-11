@@ -46,9 +46,9 @@
                 lower_layer {
 // ----------------------------------------------------------------------------------
 // |    |     |     |  {  |  }  |  #  |   |  $  |  7  |  8  |  9  |  *  |     |
-// |    |  !  |  @  |  (  |  )  |  &  |   |  +  |  4  |  5  |  6  |  -  |  X  |
-// |    |  ^  |  _  |  [  |  ]  |  \  |   |  %  |  1  |  2  |  3  |  =  |  ~  |
-//                       |     |     | RET | ADJ(0) | cmd(.)    |
+// |    |  !  |  @  |  (  |  )  |  &  |   |  +  |  4  |  5  |  6  |  -  |  ~  |
+// |    |  ^  |  _  |  [  |  ]  |  \  |   |  %  |  1  |  2  |  3  |  =  | RTN |
+//                       |     |     | SPC | ADJ(0) | cmd(.)    |
 //                    
 //  OLD SHIT FOR REFERENCE
 //   bindings = <
@@ -61,9 +61,9 @@
 
                 bindings = <
    &trans &none     &none      &kp LBRC &kp RBRC &kp HASH         &kp DLLR &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp STAR &kp BKSP
-   &trans &kp BANG  &kp ATSN   &kp LPRN &kp RPRN &kp AMPS         &kp PLUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp MINUS &trans
-   &trans &kp CRRT  &kp UNDER  &kp LBKT &kp RBKT &kp BSLH        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp TILDE
-                              &trans      &trans       &kp RET        &lt 3 NUM_0       &mt RGUI DOT
+   &trans &kp BANG  &kp ATSN   &kp LPRN &kp RPRN &kp AMPS         &kp PLUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp MINUS &TILDE
+   &trans &kp CRRT  &kp UNDER  &kp LBKT &kp RBKT &kp BSLH        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp EQUAL &kp RET
+                              &trans      &trans       &kp SPC        &lt 3 NUM_0       &mt RGUI DOT
                         >;
                 };
 

@@ -29,6 +29,7 @@
             label = "LAYER_RETURN";
             #binding-cells = <2>;
             tapping-term-ms = <185>;
+            flavor = "hold-preferred";
             quick_tap_ms = <0>;
             bindings = <&kp>, <&kp>;
         };

@@ -24,7 +24,7 @@
             bindings = <&kp>, <&kp>;
         };
         
-         lt: layer_return {
+         lr: layer_return {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_RETURN";
             #binding-cells = <2>;

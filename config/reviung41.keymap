@@ -30,7 +30,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            quick_tap_ms = <0>;
+            quick_tap_ms = <200>;
             bindings = <&mo>, <&kp>;
         };
         

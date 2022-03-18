@@ -11,62 +11,97 @@
 
 #define HYPER(code) LC(LS(LA(LG(code))))
 
-/ {
+/
+{
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <185>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        
+         lr: layer_return {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_RETURN";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            quick_tap_ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+        
+    };
+
+
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
 // -------------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
-// | ALT(ESC) |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |    '      |
+// | ALT(ESC) |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | ' |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT(RET) |
 //                         | CMD | LWR | SPC | RSE  | CMD |
                         bindings = <
    &kp TAB  &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I    &kp O   &kp P    &kp BKSP
    &mt LALT ESC &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K    &kp L   &kp SCLN &kp QUOT
    &kp LSFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp CMMA &kp DOT &kp FSLH &mt RSFT RET
-                        &kp LGUI  &mo 1 &kp SPC  &mo 2  &kp RGUI
+                        &kp LGUI  &lr 1 TAB &kp SPC  &lr 2 RET &kp RGUI
                         >;
                 };
 
                 lower_layer {
 // ----------------------------------------------------------------------------------
-// |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
-// |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |   - |
-// |    |    |  \  |  "|"  | [  | ]   |   |     |  =  |  +  |   . |  ~  |     _     |
-//                       |     |     | RET | ADJ |     |
-                        bindings = <
-   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp BKSP
-   &trans &kp BANG  &kp ATSN &kp HASH &kp DLLR &kp PRCT      &kp CRRT &kp AMPS &kp STAR &kp LPRN &kp RPRN &kp MINUS
-   &trans &trans &kp BSLH &kp PIPE &kp LBKT &kp RBKT      &trans &kp EQUAL &kp PLUS  &kp DOT &kp TILDE &kp UNDER
-                              &trans      &trans       &kp RET        &mo 3       &trans
+// |    |     |     |  {  |  }  |  =  |   |  $  |  7  |  8  |  9  |  *  |     |
+// |    |  !  |  @  |  (  |  )  |  &  |   |  +  |  4  |  5  |  6  |  -  |  _  |
+// |    |  ^  |  \  |  [  |  ]  |  ~  |   |  %  |  1  |  2  |  3  |  #  | RTN |
+//                       |     |     | SPC | ADJ(0) | cmd(.)    |
+//                    
+//  OLD SHIT FOR REFERENCE
+//   bindings = <
+//   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp NUM_0 &kp BKSP
+//   &trans &kp BANG  &kp ATSN &kp HASH &kp DLLR &kp PRCT         &kp CRRT &kp AMPS &kp STAR &kp LPRN &kp RPRN &kp MINUS
+//   &trans &trans &kp BSLH &kp PIPE &kp LBKT &kp RBKT            &trans &kp EQUAL &kp PLUS  &kp DOT &kp TILDE &kp UNDER
+ //                             &trans      &trans       &kp RET        &mt 3 NUM_0       &trans
+ //                       >;
+  //              };
+
+                bindings = <
+   &trans &none     &none      &kp LBRC &kp RBRC &kp EQUAL         &kp DLLR &kp NUM_7 &kp NUM_8 &kp NUM_9 &kp STAR &kp BKSP
+   &trans &kp BANG  &kp ATSN   &kp LPRN &kp RPRN &kp AMPS         &kp PLUS &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp MINUS &kp UNDER
+   &trans &kp CRRT  &kp BSLH  &kp LBKT &kp RBKT &kp TILDE        &kp PRCT &kp NUM_1 &kp NUM_2  &kp NUM_3 &kp HASH &kp RET
+                              &trans      &trans       &kp SPC        &lt 3 NUM_0       &mt RGUI DOT
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
-// |    |  -  |  =  |  [  |  ]  |  \  |   | F1  | F2  | F3  | F4  | F5  | F6  |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-//                       |     | ADJ | BKSP |    |     |
+// |    |     |     |     |     |     |   |     | A(L)|  UP | A(R) |     | DEL |
+// |    |Undo | Cut | copy|paste|     |   |     | L   |   D |  R   |shift|     |
+// |    |     |     |     |     |     |   |     | H(L)| H(Rtn)|H(R)|     |     |
+//                       |     | ADJ | SPACE |    |     |
                         bindings = <
-   &trans &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5     &kp NUM_6 &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp BKSP
-   &trans &none     &none     &none     &none     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT    &kp F5    &kp F6
-   &trans &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp QUOT      &kp F7    &kp HYPER(LEFT)   &kp HYPER(ENTER)  &kp  HYPER(RIGHT)  &kp F11   &kp F12
-                                &trans      &mo 3       &kp BKSP        &trans      &trans
+   &trans &none      &none      &none      &none         &none         &none &kp LA(LEFT) &kp UP &kp LA(RIGHT) &kp NUM_0 &kp DEL
+   &trans &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)     &none         &none    &kp LEFT    &kp DOWN    &kp RIGHT   &kp RSHFT    &none
+   &trans &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)     &none         &none    &kp HYPER(LEFT)   &kp HYPER(ENTER)  &kp  HYPER(RIGHT)  &kp F11   &kp F12
+                                &trans      &mo 3       &kp SPC        &trans      &trans
                         >;
                 };
 
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
-// | RGB BRI+ | RGB SAT+ | RGB HUE+ | RGB ANI+ |    | RGB TOG |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
-// | RGB BRI- | RGB SAT- | RGB HUE- | RGB ANI+ |    |         |   |       |     |     |     |     |        |
-// |          |          |          |          |    |         |   | RESET |     |     |     |     |BOOTLOAD|
+// |          |          |          |          |    |         |   |  BT1  | BT2 | BT3 | BT4 | BT5 | BT CLR |
+// |          |INSERT    |          |          |    |         |   |       |     |     |     |     |        |
+// | CAPSLOCK |          |          |          |    |         |   | RESET |     |     |     |     |BOOTLOAD|
 //                                              |     |     |     |     |     |
                         bindings = <
-   &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
-   &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &bootloader 
+   &none           &none           &none           &none           &none &none              &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
+   &none           &kp INSERT           &none           &none           &none &none              &none        &none        &none        &none        &none        &none
+   &kp CAPS           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &bootloader 
                                                              &trans      &trans       &tog 3        &trans      &trans
                         >;
                 };
